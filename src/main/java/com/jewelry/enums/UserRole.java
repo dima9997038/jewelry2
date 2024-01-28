@@ -1,5 +1,12 @@
 package com.jewelry.enums;
 
-public enum UserRole {
-    ROLE_CLIENT, ROLE_ADMIN
+import org.springframework.security.core.GrantedAuthority;
+
+public enum UserRole implements GrantedAuthority {
+    ROLE_CLIENT, ROLE_ADMIN;
+
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }
